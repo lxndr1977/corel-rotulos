@@ -594,7 +594,7 @@
 
             /* Barcode  */
 
-            .product-barcode {
+            .product-barcode { 
                 position: absolute;
                 display: flex;
                 flex-direction: column;
