@@ -158,7 +158,7 @@ class ProductResource extends Resource
                     ->schema([  
                         Forms\Components\TextInput::make('proportion')
                             ->label('Proporção de Mistura ou Shore')
-                            ->maxLength(15), 
+                            ->maxLength(50), 
 
                         Forms\Components\Textarea::make('description')
                             ->label('Informações de uso interno')
