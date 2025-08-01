@@ -52,9 +52,9 @@ class ProductResource extends Resource
                                 ->maxLength(25),
 
 
-                        Forms\Components\TextInput::make('label_product_description')
-                            ->label('Descrição para Impressão no Rótulo')
-                            ->maxLength(150),
+                        // Forms\Components\TextInput::make('label_product_description')
+                        //     ->label('Descrição para Impressão no Rótulo')
+                        //     ->maxLength(150),
 
                         Forms\Components\TextInput::make('internal_name')
                                 ->label('Nome de Uso Interno')
@@ -157,8 +157,8 @@ class ProductResource extends Resource
                 Forms\Components\Section::make('Outras Informações')
                     ->schema([  
                         Forms\Components\TextInput::make('proportion')
-                            ->label('Proporção de Mistura')
-                            ->maxLength(7), 
+                            ->label('Proporção de Mistura ou Shore')
+                            ->maxLength(15), 
 
                         Forms\Components\Textarea::make('description')
                             ->label('Informações de uso interno')

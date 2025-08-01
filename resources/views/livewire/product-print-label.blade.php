@@ -168,7 +168,7 @@
                 </div>
 
                 <div class="product-proportion">
-                    @if (!empty($product->proportion)) <p>Proporção: {{ $product->proportion }}</p> @endif
+                    @if (!empty($product->proportion)) <p> {{ $product->proportion }}</p> @endif
                 </div>
 
                 <div class="product-description">

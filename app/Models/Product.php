@@ -16,7 +16,6 @@ class Product extends Model
         'comercial_name',
         'internal_name',
         'label_name',
-        'label_product_description',
         'chemycal_type',
         'liquid_substance',
         'technical_features',
