@@ -1,4 +1,8 @@
 {{-- Lógica de Impressão --}}
+
+
+
+
 <div id="printableArea" class="absolute -top-full -left-full"
    wire:key="print-area-{{ $start_at_position }}-{{ count($printQueue) }}">
 
@@ -135,6 +139,7 @@
          @endif
       @endfor
       {{-- CSS Styles --}}
+
       <style>
          :root {
             /* Page settings */

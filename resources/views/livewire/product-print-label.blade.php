@@ -305,6 +305,33 @@
 
    }
 
+   @media print {
+
+      /* Força reset completo na impressão */
+      html,
+      body {
+         height: 100% !important;
+         margin: 0 !important;
+         padding: 0 !important;
+      }
+
+
+      /* Mostra apenas as páginas de impressão */
+      .print-label-page {
+         display: flex !important;
+         position: absolute !important;
+         top: 0 !important;
+         left: 0 !important;
+      }
+
+      /* Ajuste mais específico para a primeira página */
+      .print-label-page:first-of-type {
+         margin-top: var(--page-margin-top) !important;
+         padding-top: 0 !important;
+      }
+   }
+
+
    @media screen {
       .print-label-page {
          display: none;

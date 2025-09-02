@@ -8,4 +8,9 @@ export default {
         "./resources/**/*.blade.php",
         './vendor/filament/**/*.blade.php',
     ],
+    safelist: [
+    'no-print',
+    'print-label-page',
+    'print-label-container',
+    'page-break', ],
 }
