@@ -3,7 +3,6 @@
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
 
-@source '../../../../app/Filament';
 @source '../../../../resources/views/livewire';
 
 .fi-body {

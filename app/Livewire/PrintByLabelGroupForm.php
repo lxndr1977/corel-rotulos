@@ -32,26 +32,19 @@ class PrintByLabelGroupForm extends Component
 
 
    public function getSelectedLabelGroupImageProperty()
-{
+   {
+      if (!$this->selectedLabelGroupId) {
+         return null;
+      }
 
+      $labelGroup = LabelGroup::find($this->selectedLabelGroupId);
 
+      if (!$labelGroup) {
+         return null;
+      }
 
-    if (!$this->selectedLabelGroupId) {
-        return null;
-    }
-
-
-    $labelGroup = LabelGroup::find($this->selectedLabelGroupId);
-
-
-
-    if (!$labelGroup) {
-        return null;
-    }
-
-    $this->selectedLabelGroupImage =  asset('storage/' . $labelGroup->image);
-
-}
+      $this->selectedLabelGroupImage =  asset('storage/' . $labelGroup->image);
+   }
 
 
    public function updatedStartAtPosition()
@@ -148,6 +141,11 @@ class PrintByLabelGroupForm extends Component
 
    public function addToQueue()
    {
+
+    if (!$this->showBatchModal || !$this->variationForBatchSelection) {
+        return;
+    }
+
       $this->validate([
          'selectedBatchId' => 'required',
          'quantity' => 'required|integer|min:1',
@@ -161,12 +159,14 @@ class PrintByLabelGroupForm extends Component
 
       $queueKey = $variation->id . '-' . $batch->id;
 
+      $this->closeModal();
+
       if (isset($this->printQueue[$queueKey])) {
          $this->printQueue[$queueKey]['quantity'] = $this->quantity;
-         Notification::make()
-            ->title('Quantidade atualizada na lista!')
-            ->success()
-            ->send();
+         // Notification::make()
+         //    ->title('Quantidade atualizada na lista!')
+         //    ->success()
+         //    ->send();
       } else {
          $this->printQueue[$queueKey] = [
             'variation_id' => $variation->id,
@@ -179,31 +179,31 @@ class PrintByLabelGroupForm extends Component
             'weight' => $variation->formattedWeight() . ' ' . $variation->unitMeasurement?->unit_symbol . ($variation->package ? ' (' . $variation->package->description . ')' : ''),
             'expiration' => $batch->expiration_month . '/' . $batch->expiration_year,
          ];
-         Notification::make()
-            ->title('Produto adicionado à lista!')
-            ->success()
-            ->send();
+         // Notification::make()
+         //    ->title('Produto adicionado à lista!')
+         //    ->success()
+         //    ->seconds(2)
+         //    ->send();
       }
 
-      $this->closeModal();
    }
 
    public function removeFromQueue($queueKey)
    {
       unset($this->printQueue[$queueKey]);
-      Notification::make()
-         ->title('Item removido da lista')
-         ->success()
-         ->send();
+      // Notification::make()
+      //    ->title('Item removido da lista')
+      //    ->success()
+      //    ->send();
    }
 
    public function clearQueue()
    {
       $this->printQueue = [];
-      Notification::make()
-         ->title('Lista de impressão limpa')
-         ->success()
-         ->send();
+      // Notification::make()
+      //    ->title('Lista de impressão limpa')
+      //    ->success()
+      //    ->send();
    }
 
    public function closeModal()

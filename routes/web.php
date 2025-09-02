@@ -13,3 +13,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/print/execute', [PrintController::class, 'execute'])->name('print.execute');
     Route::get('/print/preview', [PrintController::class, 'preview'])->name('print.preview');
 });
+

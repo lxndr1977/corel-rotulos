@@ -6,12 +6,7 @@
 <x-filament::section>
    <x-slot name="heading">3. Lista de Impressão</x-slot>
    
-   <x-slot name="headerEnd">
-      <x-filament::button wire:click="clearQueue" color="gray" icon="heroicon-o-trash"
-         onclick="return confirm('Limpar toda a lista?')">
-         Limpar Lista
-      </x-filament::button>
-   </x-slot>
+
 
    @if (!empty($printQueue))
 
@@ -103,12 +98,9 @@
                  }, 250); // Um pequeno delay para garantir que tudo carregue
              }
          }">
-         <button type="button" @click="print()" class="fi-btn fi-btn-color-primary fi-btn-size-md">
-            Visualizar
-         </button>
-         <button type="button" @click="print()" class="fi-btn fi-btn-color-success fi-btn-size-md">
-            Imprimir
-         </button>
+         <x-filament::button outlined wire:click="clearQueue()" icon="heroicon-o-x-circle" color="gray">Limpar</x-filament::button>
+         <x-filament::button  @click="print()" icon="heroicon-o-printer">Imprimir</x-filament::button>
+
       </div>
    @endif
 

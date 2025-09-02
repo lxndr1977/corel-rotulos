@@ -8,8 +8,9 @@ use Livewire\Component;
 use Filament\Schemas\Schema;
 use App\Services\BarcodeService;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
+use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 
@@ -188,4 +189,5 @@ class ProductPrintLabel extends Component implements HasSchemas
          return 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('images/placeholder.png')));
       }
    }
+
 }

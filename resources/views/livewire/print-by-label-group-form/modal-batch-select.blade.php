@@ -24,7 +24,7 @@
                <label for="batch" class="block text-sm font-medium text-gray-700 mb-2">Lote</label>
                <x-filament::input.wrapper>
 
-                  <x-filament::input.select wire:model.live="selectedBatchId" id="batch" class="mt-1">
+                  <x-filament::input.select wire:model="selectedBatchId" id="batch" class="mt-1">
                      <option value="">Selecione um lote</option>
                      @foreach ($this->batchesForSelectedVariation as $batch)
                         <option value="{{ $batch->id }}">

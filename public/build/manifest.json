@@ -10,18 +10,15 @@
     "isEntry": true
   },
   "resources/css/filament/login/theme.js": {
-    "file": "assets/theme-CDSV5lz7.js",
+    "file": "assets/theme-l0sNRNKZ.js",
     "name": "theme",
     "src": "resources/css/filament/login/theme.js",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-Bf1devKI.js",
+    "file": "assets/app-C0G0cght.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true,
-    "imports": [
-      "resources/css/filament/login/theme.js"
-    ]
+    "isEntry": true
   }
 }
