@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Users\Tables;
+namespace App\Filament\Resources\Packages\Tables;
 
 use App\Models\Package;
 use App\Models\Product;

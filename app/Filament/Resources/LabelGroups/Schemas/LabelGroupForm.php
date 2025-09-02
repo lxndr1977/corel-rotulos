@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Users\Schemas;
+namespace App\Filament\Resources\LabelGroups\Schemas;
 
 use App\Enums\OrientationPageEnum;
 use App\Enums\TextAlignmentEnum;

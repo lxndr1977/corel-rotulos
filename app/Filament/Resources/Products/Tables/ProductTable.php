@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Users\Tables;
+namespace App\Filament\Resources\Products\Tables;
 
 use App\Models\Product;
 use Filament\Tables\Table;

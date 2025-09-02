@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Products\Schemas\Schemas;
+namespace App\Filament\Resources\Products\Schemas;
 
 use App\Models\Pictogram;
 use App\Models\HazardClass;
