@@ -7,12 +7,11 @@ use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use App\Filament\Resources\Products\Pages\PrintLabel;
-use App\Filament\Resources\Users\Tables\ProductTable;
 use App\Filament\Resources\Products\Pages\EditProduct;
-use App\Filament\Resources\Products\Pages\ViewProduct;
 use App\Filament\Resources\Products\Pages\ListProducts;
 use App\Filament\Resources\Products\Pages\CreateProduct;
-use App\Filament\Resources\Products\Schemas\Schemas\ProductForm;
+use App\Filament\Resources\Products\Schemas\ProductForm;
+use App\Filament\Resources\Products\Tables\ProductTable;
 use App\Filament\Resources\Products\RelationManagers\BatchesRelationManager;
 use App\Filament\Resources\Products\RelationManagers\VariationsRelationManager;
 
