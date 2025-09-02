@@ -142,9 +142,9 @@ class PrintByLabelGroupForm extends Component
    public function addToQueue()
    {
 
-    if (!$this->showBatchModal || !$this->variationForBatchSelection) {
-        return;
-    }
+   //  if (!$this->showBatchModal || !$this->variationForBatchSelection) {
+   //      return;
+   //  }
 
       $this->validate([
          'selectedBatchId' => 'required',
@@ -159,7 +159,6 @@ class PrintByLabelGroupForm extends Component
 
       $queueKey = $variation->id . '-' . $batch->id;
 
-      $this->closeModal();
 
       if (isset($this->printQueue[$queueKey])) {
          $this->printQueue[$queueKey]['quantity'] = $this->quantity;
@@ -185,6 +184,8 @@ class PrintByLabelGroupForm extends Component
          //    ->seconds(2)
          //    ->send();
       }
+
+      $this->closeModal();
 
    }
 

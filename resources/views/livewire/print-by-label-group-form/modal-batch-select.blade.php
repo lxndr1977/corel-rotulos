@@ -45,7 +45,7 @@
                <label for="quantity" class="block text-sm font-medium text-gray-700 mb-2">Quantidade</label>
                <x-filament::input.wrapper>
 
-                  <x-filament::input type="number" wire:model="quantity" id="quantity" min="1"
+                  <x-filament::input type="number" wire:model.live="quantity" id="quantity" min="1"
                      class="mt-1" />
                   @error('quantity')
                      <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
