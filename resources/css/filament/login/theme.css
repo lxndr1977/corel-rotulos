@@ -1,8 +1,12 @@
-@import '/vendor/filament/filament/resources/css/theme.css';
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
 
-@config 'tailwind.config.js';
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
 
+@source '../../../../app/Filament';
+@source '../../../../resources/views/livewire';
 
-@layer components {
-   
+.fi-body {
+ @apply bg-zinc-100
 }
+

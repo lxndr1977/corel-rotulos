@@ -26,7 +26,8 @@ class Product extends Model
         'cure',
         'viscosity',
         'thickness',
-        'proportion'
+        'proportion',
+        'is_active'
     ];
 
     public function batches() 
@@ -50,6 +51,11 @@ class Product extends Model
     }
 
     public function variations() {
+        return $this->hasMany(ProductVariation::class);
+    }
+
+    public function productVariations()
+    {
         return $this->hasMany(ProductVariation::class);
     }
 }

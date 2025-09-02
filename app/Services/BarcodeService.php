@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use barcode_generator;
+use Exception;
+
 require_once app_path('Libraries/barcode.php');
 
 class BarcodeService
@@ -20,22 +23,22 @@ class BarcodeService
     {
         try {
             // Inicializa o gerador de barcode
-            $barcode = new \barcode_generator();
+            $barcode = new barcode_generator();
 
             // Gera o código de barras como imagem
             // $image = $barcode->render_svg('ean-13', $code, [            ]);
-            
+
             ob_start(); // Inicia o buffer de saída
             $barcode->output_image('jpg', $type, $code, [ 'sf' => 4, 'ts' => 38, 'th' => 20         ]);
             $image = ob_get_clean(); // Captura os dados binários gerados
-    
+
             if ($returnAsBase64) {
                 // Retorna a imagem como Base64
                 return 'data:image/jpeg;base64,' . base64_encode($image);
             }
 
            return  $image;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return 'Erro ao gerar código de barras: ' . $e->getMessage();
         }
     }

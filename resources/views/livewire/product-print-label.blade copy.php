@@ -1,13 +1,13 @@
 <div>
 
     <!-- Print settings -->
-    <div class="no-print bg-white rounded-lg shadow">
+    <div class="no-print bg-white rounded-lg shadow-sm">
          <div class="border-b border-gray-200 fi-section-header-heading text-base font-semibold leading-6 text-gray-950 dark:text-white px-6 py-4">Configuração da impressão</div>
         <div class="grid grid-cols-4 gap-x-4 justify-between items-end  p-6">
             <div class="grid gap-y-2 ">
                 <label for="batch" class="inline-flex items-center gap-x-3 text-sm">Lote</label>
-                <div class="fi-input-wrp w-full flex rounded-lg shadow-sm ring-1 transition duration-75 bg-white dark:bg-white/5 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-2 ring-gray-950/10 dark:ring-white/20 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-primary-600 dark:[&:not(:has(.fi-ac-action:focus))]:focus-within:ring-primary-500 fi-fo-select">
-                    <select wire:model="lote" wire:change="getBatch" name="batch" class="fi-select-input block w-full border-none bg-transparent py-1.5 pe-8 text-base text-gray-950 transition duration-75 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] dark:text-white dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] sm:text-sm sm:leading-6 [&_optgroup]:bg-white [&_optgroup]:dark:bg-gray-900 [&_option]:bg-white [&_option]:dark:bg-gray-900 ps-3">
+                <div class="fi-input-wrp w-full flex rounded-lg shadow-xs ring-1 transition duration-75 bg-white dark:bg-white/5 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-2 ring-gray-950/10 dark:ring-white/20 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-primary-600 dark:[&:not(:has(.fi-ac-action:focus))]:focus-within:ring-primary-500 fi-fo-select">
+                    <select wire:model="lote" wire:change="getBatch" name="batch" class="fi-select-input block w-full border-none bg-transparent py-1.5 pe-8 text-base text-gray-950 transition duration-75 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:var(--color-gray-500)] dark:text-white dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:var(--color-gray-400)] sm:text-sm sm:leading-6 [&_optgroup]:bg-white dark:[&_optgroup]:bg-gray-900 [&_option]:bg-white dark:[&_option]:bg-gray-900 ps-3">
                         <option value="">Selecione um lote</option>
                         @foreach ($product->batches as $batch)
                             <option value="{{ $batch->id }}">{{ $batch->identification }}</option>
@@ -20,7 +20,7 @@
             <div class="grid gap-y-2">
                 <label for="total_labels" class="inline-flex items-center gap-x-3 text-sm">Quantidade</label>
                 <input 
-                    class="fi-input block w-auto bg-white dark:bg-white/5 border-gray-200 rounded-lg shadow-sm py-1.5 text-base text-gray-950 transition duration-75 placeholder:text-gray-400 focus:ring-0 focus:border-primary-600 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.400)] dark:text-white dark:placeholder:text-gray-500 dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] dark:disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.500)] sm:text-sm sm:leading-6 ps-3 pe-3" 
+                    class="fi-input block w-auto bg-white dark:bg-white/5 border-gray-200 rounded-lg shadow-xs py-1.5 text-base text-gray-950 transition duration-75 placeholder:text-gray-400 focus:ring-0 focus:border-primary-600 disabled:text-gray-500 disabled:[-webkit-text-fill-color:var(--color-gray-500)] disabled:placeholder:[-webkit-text-fill-color:var(--color-gray-400)] dark:text-white dark:placeholder:text-gray-500 dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:var(--color-gray-400)] dark:disabled:placeholder:[-webkit-text-fill-color:var(--color-gray-500)] sm:text-sm sm:leading-6 ps-3 pe-3" 
                     type="number" 
                     name="total_labels" 
                     wire:model="total_labels" 
@@ -32,8 +32,8 @@
             <!-- Seleção de posição de início -->
             <div class="grid gap-y-2">
                 <label for="start_at_position" class="inline-flex items-center gap-x-3 text-sm">Imprimir na posição</label>
-                <div class="fi-input-wrp flex rounded-lg shadow-sm ring-1 transition duration-75 bg-white dark:bg-white/5 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-2 ring-gray-950/10 dark:ring-white/20 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-primary-600 dark:[&:not(:has(.fi-ac-action:focus))]:focus-within:ring-primary-500 fi-fo-select">
-                    <select id="start_at_position" name="start_at_position" wire:model="start_at_position" class="fi-select-input block w-full border-none bg-transparent py-1.5 pe-8 text-base text-gray-950 transition duration-75 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] dark:text-white dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] sm:text-sm sm:leading-6 [&_optgroup]:bg-white [&_optgroup]:dark:bg-gray-900 [&_option]:bg-white [&_option]:dark:bg-gray-900 ps-3">
+                <div class="fi-input-wrp flex rounded-lg shadow-xs ring-1 transition duration-75 bg-white dark:bg-white/5 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-2 ring-gray-950/10 dark:ring-white/20 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-primary-600 dark:[&:not(:has(.fi-ac-action:focus))]:focus-within:ring-primary-500 fi-fo-select">
+                    <select id="start_at_position" name="start_at_position" wire:model="start_at_position" class="fi-select-input block w-full border-none bg-transparent py-1.5 pe-8 text-base text-gray-950 transition duration-75 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:var(--color-gray-500)] dark:text-white dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:var(--color-gray-400)] sm:text-sm sm:leading-6 [&_optgroup]:bg-white dark:[&_optgroup]:bg-gray-900 [&_option]:bg-white dark:[&_option]:bg-gray-900 ps-3">
                     <option value="1">Posição 1</option>
                     <option value="2">Posição 2</option>
                     <option value="3">Posição 3</option>
@@ -54,7 +54,7 @@
             <div>
                 <button 
                     type="button" 
-                    class="print-button fi-btn bg-gray-400 relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus-visible:ring-2 rounded-lg fi-color-custom fi-btn-color-primary fi-color-primary fi-size-md fi-btn-size-md gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm bg-custom-600 text-white hover:bg-primary-500 focus-visible:ring-primary-500/50 dark:bg-primary-500 dark:hover:bg-primary-400 dark:focus-visible:ring-primary-400/50 fi-ac-action fi-ac-btn-action" 
+                    class="print-button fi-btn bg-gray-400 relative grid-flow-col items-center justify-center font-semibold outline-hidden transition duration-75 focus-visible:ring-2 rounded-lg fi-color-custom fi-btn-color-primary fi-color-primary fi-size-md fi-btn-size-md gap-1.5 px-3 py-2 text-sm inline-grid shadow-xs bg-custom-600 text-white hover:bg-primary-500 focus-visible:ring-primary-500/50 dark:bg-primary-500 dark:hover:bg-primary-400 dark:focus-visible:ring-primary-400/50 fi-ac-action fi-ac-btn-action" 
                     x-data="{ lote: @this.lote }"
                     x-on:click="window.print()"
                     :disabled="!@this.lote || @this.lote === ''"
@@ -72,7 +72,7 @@
             @php $current_label = 0  @endphp
         </div>
 
-        <div class="no-print  bg-white rounded-lg shadow border-gray-400 col-span-3">
+        <div class="no-print  bg-white rounded-lg shadow-sm border-gray-400 col-span-3">
             <div class="border-b border-gray-200 text-base font-semibold text-gray-950 dark:text-white px-6 py-4 flex items-center">
                 <div class="inline-flex gap-x-2 items-center">
                     Confira o rótulo antes de imprimir

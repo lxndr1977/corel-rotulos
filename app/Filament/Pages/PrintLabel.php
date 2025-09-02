@@ -2,13 +2,13 @@
 
 namespace App\Filament\Pages;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Forms;
 use App\Models\Batch;
 use App\Models\Product;
 use App\Models\LabelGroup;
 use App\Models\ProductVariation;
-use Filament\Forms\Get;
-use Filament\Forms\Form;
 use Filament\Pages\Page;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Repeater;
@@ -18,9 +18,9 @@ use Filament\Forms\Set;
 
 class PrintLabel extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.print-label';
+    protected string $view = 'filament.pages.print-label';
 
     protected static bool $isDiscovered = false;
 
@@ -43,10 +43,10 @@ class PrintLabel extends Page
         $this->dispatch('form-updated', ['formData' => $this->data]);
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Select::make('label_group_id')
                     ->options(LabelGroup::all()->pluck('name', 'id')->toArray())
                     ->live(onBlur: true)
@@ -54,7 +54,7 @@ class PrintLabel extends Page
                         $set('products', []); 
                         $set('labelGroup', LabelGroup::find($get('label_group_id'))); 
                     }),
-    
+
                 Repeater::make('products')
                     ->schema([
                         Select::make('product_id')
@@ -69,7 +69,7 @@ class PrintLabel extends Page
                                 $set('weight_with_unit', null);
                                 $set('expiration_month', null);
                                 $set('expiration_year', null);
-    
+
                                 // Obter o produto selecionado
                                 $product = Product::find($state);
                                 if ($product) {
@@ -79,7 +79,7 @@ class PrintLabel extends Page
                                     $set('pictograms', $product->pictograms->map->getImageUrlAttribute()->toArray()); 
                                 }
                             }),
-    
+
                         Select::make('batch_id')
                             ->options(fn (Get $get): array => 
                                 $get('product_id') ? 
@@ -97,7 +97,7 @@ class PrintLabel extends Page
                                             $set('expiration_year', $batch->expiration_year);
                                         }
                                     }),
-    
+
                         Select::make('weight_id')
                             ->options(fn (Get $get): array => 
                                 $get('product_id') ? 
@@ -117,7 +117,7 @@ class PrintLabel extends Page
                                             $set('weight_with_unit', $weight->formattedWeight() . ' ' . $unitMeasurementSymbol);
                                         }
                                     }),
-    
+
                             TextInput::make('quantity')
                                 ->live(onBlur: true)
                                 ->label('Quantidade')
@@ -127,25 +127,25 @@ class PrintLabel extends Page
                     ->columns(3)
                     ->defaultItems(0)
                     ->deleteAction(
-                        function (Forms\Components\Actions\Action $action) {
+                        function (Action $action) {
                             return $action
                                 ->requiresConfirmation()
                                 ->modalDescription('Are you sure you want to delete this item? This action cannot be undone.')
                                     ->before(function (callable $get, callable $set, $state, array $arguments, $livewire) {
                                         // Obtenha o array de produtos atual
                                         $currentItems = $get('products');
-                                    
+
                                         // Valor do item a ser removido
                                         $itemToRemove = $arguments['item'];
-                                    
+
                                         // Debug: Mostra o item e os produtos atuais
                                         // dd("Item to remove: " . $itemToRemove, $currentItems);
-                                    
+
                                         // Verifique se o item existe no array
                                         if (isset($currentItems[$itemToRemove])) {
                                             unset($currentItems[$itemToRemove]); // Remove o item
                                             $set('products', $currentItems); // Atualiza o estado com o array atualizado
-                                    
+
                                             // Debug: Verifica se a remoção foi bem-sucedida
                                             // dd("Item removed: " . $itemToRemove, $currentItems);
                                         } else {
@@ -155,11 +155,11 @@ class PrintLabel extends Page
 
                                         $livewire->updatedData($state);
                                     });
-                                    
-                                
+
+
                         }
                     )
-                                
+
             ])
             ->statePath('data');  // Bind form state to the `data` property
     }
