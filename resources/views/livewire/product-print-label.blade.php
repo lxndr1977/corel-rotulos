@@ -186,7 +186,7 @@
 
                <!-- Product barcode -->
                <div class="product-barcode">
-                  @if ($selectedVariation && $selectedVariation->gtin)
+                  @if ($selectedVariation && filter_var($selectedVariation->gtin, FILTER_VALIDATE_INT) !== false)
                      <img
                         src="data:image/png;base64,{{ DNS1D::getBarcodePNG($selectedVariation->gtin, 'EAN13', 2, 93, [0, 0, 0], true) }}"
                         alt="barcode" />

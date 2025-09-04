@@ -106,7 +106,8 @@ class VariationsRelationManager extends RelationManager
 
             TextInput::make('gtin')
                ->label('GTIN - Número do Código de Barras')
-               ->maxLength(255),
+               ->mask('9999999999999')
+               ->maxLength(13),
          ]);
    }
 

@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Hamcrest\Type\IsInteger;
 
 class ProductPrintLabel extends Component implements HasSchemas
 {
@@ -60,7 +61,6 @@ class ProductPrintLabel extends Component implements HasSchemas
                      $this->batch = $state;
                      $this->getBatch();
                   }),
-
                // Select de Posição (baseado na variação selecionada)
                Select::make('start_at_position')
                   ->label('Posição Inicial')
@@ -183,11 +183,12 @@ class ProductPrintLabel extends Component implements HasSchemas
    {
       try {
          // Gera o código de barras como Base64
-         return $this->barcodeService->generate($gtin, 'ean13', 2, 50, true);
+         if (ctype_digit($gtin)) {
+            return $this->barcodeService->generate($gtin, 'ean13', 2, 50, true);
+         }
       } catch (Exception $e) {
          // Retorna uma imagem placeholder em caso de erro
          return 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('images/placeholder.png')));
       }
    }
-
 }
