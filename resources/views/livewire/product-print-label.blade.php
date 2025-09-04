@@ -319,7 +319,7 @@
       /* Mostra apenas as páginas de impressão */
       .print-label-page {
          display: flex !important;
-         position: absolute !important;
+         /* position: absolute !important; */
          top: 0 !important;
          left: 0 !important;
       }
@@ -414,7 +414,7 @@
       }
 
       .page-break {
-         page-break-after: always;
+         page-break-after: always !important;
       }
 
       /* Product name */
