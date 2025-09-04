@@ -43,7 +43,7 @@ class ProductPrintLabel extends Component implements HasSchemas
                   ->reactive()
                   ->afterStateUpdated(function ($state, callable $set) {
                      // Limpa a posição quando a variação muda
-                     $set('start_at_position', null);
+                     $set('start_at_position', 1);
                      // Atualiza a variação selecionada
                      $this->product_variation = $state;
                      $this->getVariation();
