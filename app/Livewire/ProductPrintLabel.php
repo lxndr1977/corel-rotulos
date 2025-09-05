@@ -55,7 +55,6 @@ class ProductPrintLabel extends Component implements HasSchemas
                   ->label('Lote')
                   ->options($this->product->batches()->pluck('identification', 'id'))
                   ->preload()
-                  ->searchable()
                   ->reactive()
                   ->afterStateUpdated(function ($state) {
                      $this->batch = $state;
