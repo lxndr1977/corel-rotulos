@@ -40,7 +40,6 @@ class ProductPrintLabel extends Component implements HasSchemas
                Select::make('product_variation')
                   ->label('Variação do Produto')
                   ->options($this->getVariationOptions())
-                  ->searchable()
                   ->reactive()
                   ->afterStateUpdated(function ($state, callable $set) {
                      // Limpa a posição quando a variação muda
