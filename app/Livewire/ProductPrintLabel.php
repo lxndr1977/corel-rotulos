@@ -75,7 +75,7 @@ class ProductPrintLabel extends Component implements HasSchemas
                   ->minValue(1)
                   ->reactive()
                   ->afterStateUpdated(function ($state) {
-                     $this->total_labels = $state;
+                     // $this->total_labels = $state;
                      $this->updatedTotalLabels();
                   }),
             ])->columns(4)

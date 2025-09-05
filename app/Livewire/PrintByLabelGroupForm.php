@@ -91,7 +91,7 @@ class PrintByLabelGroupForm extends Component
       }
       return Batch::where('product_id', $this->variationForBatchSelection->product_id)
          ->with('supplier:id,company_name')
-         ->orderBy('identification')
+         // ->orderBy('identification')
          ->get();
    }
 
